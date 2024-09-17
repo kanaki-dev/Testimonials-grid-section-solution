@@ -235,11 +235,35 @@ p {
 	font-size: var(--fs-xs);
 }
 
+.card:nth-child(1) {
+	position: relative;
+	z-index: 1;
+}
+
+.card:nth-child(1)::before {
+	content: "";
+	background: url("../images/bg-pattern-quotation.svg");
+	top: 0;
+	right: 4.2rem;
+	width: 8rem;
+	height: 8rem;
+	display: block;
+	background-size: cover;
+	position: absolute;
+	z-index: -1;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 395px) {
 	.card__author--img {
 		max-width: 100%;
+	}
+
+	.card:nth-child(1)::before {
+		width: 6rem;
+		height: 6rem;
+		right: 2rem;
 	}
 }
 
@@ -247,6 +271,12 @@ p {
 	.contianer {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.card:nth-child(1)::before {
+		width: 6rem;
+		height: 6rem;
+		right: 2rem;
 	}
 }
 
@@ -264,12 +294,15 @@ p {
 		grid-row: 1;
 	}
 
-	.contianer art .card__author > img {
-		width: 2.5rem;
+	.contianer .card__author > img {
+		min-width: 2.5rem;
+		max-width: 2.5rem;
 	}
 
-	.card__author img {
-		max-width: 100%;
+	.card:nth-child(1)::before {
+		width: 6rem;
+		height: 6rem;
+		right: 2rem;
 	}
 }
 
